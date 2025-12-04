@@ -33,7 +33,7 @@ A Django-based backend for an embassy services application that enables users to
 
 **Tech Stack**
 
-- **Framework**: Django (Python)
+- **Framework**: Django (Python), Django Rest Framework
 - **Database**: SQLite (default for local development)
 - **Languages**: Python 3.x
 
@@ -56,17 +56,17 @@ A Django-based backend for an embassy services application that enables users to
 
 Create a virtual environment and install dependencies (example):
 
-```
+```bash
 python -m venv venv
-; .\venv\Scripts\Activate.ps1
-; pip install -U pip
-; pip install -r requirements.txt  # if provided
+ .\venv\Scripts\Activate
+ pip install -U pip
+ pip install -r requirements.txt  # if provided
 ```
 
 If no `requirements.txt` exists in the repo, you can install Django directly for development:
 
-```
-; pip install Django
+```bash
+ pip install Django
 ```
 
 ---
@@ -76,20 +76,20 @@ If no `requirements.txt` exists in the repo, you can install Django directly for
 1. Activate your virtual environment (see above).
 2. Apply migrations:
 
-```
-; python manage.py migrate
+```bash
+ python manage.py migrate
 ```
 
 3. Create a superuser (admin) account to access Django admin:
 
-```
-; python manage.py createsuperuser
+```bash
+ python manage.py createsuperuser
 ```
 
 4. Run the development server:
 
-```
-; python manage.py runserver
+```bash
+ python manage.py runserver
 ```
 
 Open http://127.0.0.1:8000/ in a browser or access the Django admin at http://127.0.0.1:8000/admin/.
@@ -112,9 +112,9 @@ Open http://127.0.0.1:8000/ in a browser or access the Django admin at http://12
 - This repo uses SQLite for development for simplicity. Migrations are included in each app's `migrations/` folder.
 - To create new migrations after model changes:
 
-```
-; python manage.py makemigrations
-; python manage.py migrate
+```bash
+ python manage.py makemigrations
+ python manage.py migrate
 ```
 
 ---
@@ -127,8 +127,6 @@ Open http://127.0.0.1:8000/ in a browser or access the Django admin at http://12
 - `reports/` — generation of simple reports and aggregates for admin use.
 - `services/` — domain models for embassy service offerings and related logic.
 - `users/` — user profile models and authentication-related views.
-
-Note: The exact API endpoints and serializers are implemented in each app's `views.py` (and possibly `serializers.py` if DRF was introduced). If using Django REST Framework, endpoints will be present in the views or routers.
 
 ---
 
