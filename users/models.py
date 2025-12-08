@@ -11,7 +11,7 @@ class User(AbstractUser):
 
     ]
     role = models.CharField(max_length=20, choices=ROLE_CHOICES, default='applicant')
-    # username = models.CharField(max_length=150, unique=True)
+    username = models.CharField(max_length=150, unique=True)
     phone = models.CharField(max_length=20, null=True, blank=True)
     email = models.EmailField(unique=True)
     password = models.CharField(max_length=128)

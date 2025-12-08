@@ -27,6 +27,7 @@ class LoginView(generics.GenericAPIView):
                 'username': user.username,
                 'email': user.email,
                 'role': user.role,
+                'date_joined': user.date_joined,
             },
             'refresh': str(refresh),
             'access': str(refresh.access_token),
