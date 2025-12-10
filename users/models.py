@@ -5,9 +5,9 @@ from django.contrib.auth.models import AbstractUser
 # Create your models here.
 class User(AbstractUser):
     ROLE_CHOICES = [
-        ('applicant', 'Applicant'),
-        ('staff', 'Staff'),
-        ('admin', 'Admin'),
+        ('applicant', 'APPLICANT'),
+        ('staff', 'STAFF'),
+        ('admin', 'ADMIN'),
 
     ]
     role = models.CharField(max_length=20, choices=ROLE_CHOICES, default='applicant')
