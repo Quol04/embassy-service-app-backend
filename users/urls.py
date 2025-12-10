@@ -11,6 +11,4 @@ urlpatterns = [
     path('<int:user_id>/role/',UserRoleUpdateView.as_view(), name='update-role' ),
     path('<int:user_id>/delete/',UserDeleteView.as_view(), name='delete-user' ),
 
-
-
 ]
