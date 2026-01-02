@@ -40,3 +40,47 @@ class AppointmentSerializer(serializers.ModelSerializer):
             )
 
         return data
+
+# Appointment management
+class AppointmentStatusUpdateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Appointment
+        fields = ['status']
+
+    def validate_status(self, value):
+        instance = self.instance
+
+        allowed_transitions = {
+            Appointment.STATUS_PENDING: [
+                Appointment.STATUS_APPROVED,
+                Appointment.STATUS_REJECTED,
+            ],
+            Appointment.STATUS_APPROVED: [
+                Appointment.STATUS_COMPLETED,
+            ],
+        }
+
+        if instance.status not in allowed_transitions:
+            raise serializers.ValidationError(
+                "This appointment cannot be updated."
+            )
+
+        if value not in allowed_transitions.get(instance.status, []):
+            raise serializers.ValidationError(
+                f"Invalid status transition from {instance.status} to {value}"
+            )
+
+        return value
+
+
+class AppointmentRescheduleSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Appointment
+        fields = ['appointment_date', 'appointment_time']
+
+    def validate_appointment_date(self, value):
+        if value < date.today():
+            raise serializers.ValidationError(
+                "Cannot reschedule to a past date."
+            )
+        return value
