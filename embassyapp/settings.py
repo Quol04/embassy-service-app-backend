@@ -37,8 +37,8 @@ INSTALLED_APPS = [
     'embassyapp',
     'appointments',
     'users',
-    'notifications',
-    'reports',
+    # 'notifications',
+    # 'reports',
     'services',
     'documents',
 ]
