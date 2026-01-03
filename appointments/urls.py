@@ -9,12 +9,12 @@ from .views import (
 
 urlpatterns=[
     # appicant routes
-    path('appointments/', AppointmentCreateView.as_view(), name='appointment-create'),
-    path('appointment/my/', MyAppointmentsListView.as_view(), name='my-appointments'),
+    path('', AppointmentCreateView.as_view(), name='appointment-create'),
+    path('my/', MyAppointmentsListView.as_view(), name='my-appointments'),
 
     # staff/admin routes
-    path('appointments/all/', AppointmentListView.as_view()),
-    path('appointments/<int:pk>/status/', AppointmentStatusUpdateView.as_view()),
-    path('appointments/<int:pk>/reschedule/', AppointmentRescheduleView.as_view()),
+    path('all/', AppointmentListView.as_view()),
+    path('<int:pk>/status/', AppointmentStatusUpdateView.as_view()),
+    path('<int:pk>/reschedule/', AppointmentRescheduleView.as_view()),
 
 ]

@@ -4,7 +4,7 @@ from appointments.models import Appointment
 
 # Create your models here.
 
-User= settings.AUTH_USER_MODE 
+User = settings.AUTH_USER_MODEL
 
 class Document(models.Model):
     DOCUMENT_TYPES = (
@@ -27,6 +27,7 @@ class Document(models.Model):
     )
     document_type = models.CharField(max_length=50, choices=DOCUMENT_TYPES)
     title = models.CharField(max_length=255)
+    description = models.TextField(blank=True) 
     content = models.TextField()
     issued_at = models.DateTimeField(auto_now_add=True)
     issued_by = models.ForeignKey(

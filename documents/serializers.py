@@ -9,4 +9,5 @@ class DocumentSerializer(serializers.ModelSerializer):
             'issued_at',
             'issued_by',
             'issued_to',
+            'appointment',
         )
