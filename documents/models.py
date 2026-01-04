@@ -38,7 +38,7 @@ class Document(models.Model):
     )
 
     def __str__(self):
-        return f"{self.title} - {self.issued_to}"
+        return f"{self.document_type} - {self.issued_to}"
 
 
 
