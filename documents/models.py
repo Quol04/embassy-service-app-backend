@@ -26,9 +26,9 @@ class Document(models.Model):
         related_name='documents'
     )
     document_type = models.CharField(max_length=50, choices=DOCUMENT_TYPES)
-    title = models.CharField(max_length=255)
+    # title = models.CharField(max_length=255)
     description = models.TextField(blank=True) 
-    content = models.TextField()
+    # content = models.TextField()
     issued_at = models.DateTimeField(auto_now_add=True)
     issued_by = models.ForeignKey(
         User,
